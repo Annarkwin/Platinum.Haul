@@ -1,0 +1,20 @@
+name: PlatinumHaul
+main: com.gmail.Annarkwin.Platinum.Haul.Haul
+version: 1.0
+api-version: 1.16
+depend: [PlatinumAPI]
+
+commands:
+  BottleExp:
+    description: "Fill exp bottles for later use"
+    aliases: [bxp]
+    permission: platinum.bottleexp
+    usage: /BottleExp help
+
+permissions:
+  Platinum.bottleexp.user:
+    default: true
+    children:
+      Platinum.bottleexp: true
+      Platinum.bottleexp.help: true
+      Platinum.bottleexp.fill: true
