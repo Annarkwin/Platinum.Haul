@@ -16,70 +16,114 @@ import org.bukkit.inventory.ItemStack;
 
 import com.gmail.Annarkwin.Platinum.API.Events.PlayerRightClickBlockEvent;
 
-public class ListenerPokemon implements Listener {
-	
+public class ListenerPokemon implements Listener
+{
+
 	@EventHandler
-	public void eggStrike(ProjectileHitEvent e) {		
-		//TODO Block for players not allowed
-		if (e.getHitEntity() != null && e.getEntityType() == EntityType.EGG) {
+	public void eggStrike( ProjectileHitEvent e )
+	{
+
+		// TODO Block for players not allowed
+		if (e.getHitEntity() != null && e.getEntityType() == EntityType.EGG)
+		{
+
 			Entity target = e.getHitEntity();
-			
-			if (isEggable(target)) {
-				
+
+			if (isEggable(target))
+			{
+
 				ItemStack drop = null;
 				target.remove();
 				drop = getEgg(target);
 				target.getWorld().dropItemNaturally(target.getLocation(), drop);
+
 			}
+
 		}
+
 	}
 
-	//Stop players from using eggs to change spawners
-	@EventHandler (ignoreCancelled = true)
-	public void eggSpawner(PlayerRightClickBlockEvent e) {
-		//TODO Block for players not allowed
-		if (e.getItem() != null && isSpawnEgg(e.getItem().getType()) && e.getBlock().getType() == Material.SPAWNER) {
-			if (!e.getPlayer().hasPermission("Platinum.haul.changespawner")) {
+	// Stop players from using eggs to change spawners
+	@EventHandler(ignoreCancelled = true)
+	public void eggSpawner( PlayerRightClickBlockEvent e )
+	{
+
+		// TODO Block for players not allowed
+		if (e.getItem() != null && isSpawnEgg(e.getItem().getType()) && e.getBlock().getType() == Material.SPAWNER)
+		{
+
+			if (!e.getPlayer().hasPermission("Platinum.haul.changespawner"))
+			{
+
 				e.getPlayer().sendMessage("§4[Error]:§f You don't have permission to change spawners");
 				e.setCancelled(true);
+
 			}
+
 		}
+
 	}
-	
-	//Don't spawn baby chickens from eggs
-	@EventHandler (ignoreCancelled = true)
-	public void eggSpawnChicken(CreatureSpawnEvent e) {
-		//TODO Block for players not allowed
-		if (e.getEntityType() == EntityType.CHICKEN && e.getSpawnReason() == SpawnReason.EGG) {
+
+	// Don't spawn baby chickens from eggs
+	@EventHandler(ignoreCancelled = true)
+	public void eggSpawnChicken( CreatureSpawnEvent e )
+	{
+
+		// TODO Block for players not allowed
+		if (e.getEntityType() == EntityType.CHICKEN && e.getSpawnReason() == SpawnReason.EGG)
+		{
+
 			e.setCancelled(true);
+
 		}
+
 	}
-	
-	//Mob Eggs spawn animals which have a reset breeding timer
-	@EventHandler (ignoreCancelled = true)
-	public void mobEggSpawn(CreatureSpawnEvent e) {
-		//TODO Block for players not allowed
-		if (e.getEntity() instanceof Ageable && e.getSpawnReason() == SpawnReason.SPAWNER_EGG) {
+
+	// Mob Eggs spawn animals which have a reset breeding timer
+	@EventHandler(ignoreCancelled = true)
+	public void mobEggSpawn( CreatureSpawnEvent e )
+	{
+
+		// TODO Block for players not allowed
+		if (e.getEntity() instanceof Ageable && e.getSpawnReason() == SpawnReason.SPAWNER_EGG)
+		{
+
 			Ageable mob = (Ageable) e.getEntity();
 			mob.setBaby();
+
 		}
+
 	}
-	
-	public boolean isEggable(Entity e) {
+
+	public boolean isEggable( Entity e )
+	{
+
 		return (!(e instanceof Tameable) && (e instanceof Animals || e instanceof Fish));
+
 	}
-	
-	public boolean isSpawnEgg(Material type) {
+
+	public boolean isSpawnEgg( Material type )
+	{
+
 		return (type.toString().toLowerCase().contains("spawn"));
+
 	}
-	
-	public ItemStack getEgg(Entity entity) {
+
+	public ItemStack getEgg( Entity entity )
+	{
+
 		String eggKey = entity.getType().getKey() + "_spawn_egg";
-		
-		for (Material m : Material.values()) {
+
+		for (Material m : Material.values())
+		{
+
 			if (m.getKey().toString().equals(eggKey))
 				return new ItemStack(m);
+
 		}
+
 		return null;
+
 	}
+
 }
