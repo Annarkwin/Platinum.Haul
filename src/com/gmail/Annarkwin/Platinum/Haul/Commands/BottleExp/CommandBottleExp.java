@@ -5,6 +5,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import com.gmail.Annarkwin.Platinum.API.ExperienceManager;
 import com.gmail.Annarkwin.Platinum.API.MainCommand;
 import com.gmail.Annarkwin.Platinum.API.Subcommand;
 
@@ -52,27 +53,13 @@ public class CommandBottleExp implements CommandExecutor , MainCommand
 		else if (isplayer)
 		{
 
-			sender.sendMessage("§2[Info]:§f You have " + getTotalExperience((Player) sender) + " experience");
+			sender.sendMessage(
+					"§2[Info]:§f You have " + ExperienceManager.getTotalExperience((Player) sender) + " experience");
 			return true;
 
 		}
 
 		return false;
-
-	}
-
-	// Get total experience player has based on leveling formulas
-	public static int getTotalExperience( Player p )
-	{
-
-		int level = p.getLevel();
-		int exp = (int) (p.getExp() * p.getExpToLevel());
-		if (level <= 16)
-			return level * level + 6 * level + exp;
-		else if (level <= 31)
-			return (int) (2.5 * level * level - 40.5 * level + 360) + exp;
-		else
-			return (int) (4.5 * level * level - 162.5 * level + 2220) + exp;
 
 	}
 

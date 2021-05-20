@@ -10,6 +10,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import com.gmail.Annarkwin.Platinum.API.CommandHelper;
+import com.gmail.Annarkwin.Platinum.API.ExperienceManager;
 import com.gmail.Annarkwin.Platinum.API.HelpCommand;
 import com.gmail.Annarkwin.Platinum.API.MainCommand;
 import com.gmail.Annarkwin.Platinum.API.Subcommand;
@@ -138,7 +139,7 @@ public class BottleExpFill implements Subcommand , HelpCommand
 	{
 
 		Player p = (Player) sender;
-		int exp = (int) CommandBottleExp.getTotalExperience(p);
+		int exp = (int) ExperienceManager.getTotalExperience(p);
 		int fillamt = Integer.parseInt(args[1]);
 		int bottles = p.getInventory().getItemInMainHand().getAmount();
 		int remainder;
