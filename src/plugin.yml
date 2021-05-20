@@ -10,6 +10,11 @@ commands:
     aliases: [bxp]
     permission: platinum.bottleexp
     usage: /BottleExp help
+  Enchant:
+    description: "Enchant items"
+    aliases: []
+    permission: platinum.enchant
+    usage: /Enchant help
 
 permissions:
   Platinum.bottleexp.user:

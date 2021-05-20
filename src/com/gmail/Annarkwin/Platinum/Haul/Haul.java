@@ -3,6 +3,7 @@ package com.gmail.Annarkwin.Platinum.Haul;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.gmail.Annarkwin.Platinum.Haul.Commands.BottleExp.CommandBottleExp;
+import com.gmail.Annarkwin.Platinum.Haul.Commands.Enchant.CommandEnchant;
 import com.gmail.Annarkwin.Platinum.Haul.Listeners.ListenerCrafting;
 import com.gmail.Annarkwin.Platinum.Haul.Listeners.ListenerExpBottle;
 import com.gmail.Annarkwin.Platinum.Haul.Listeners.ListenerPokemon;
@@ -42,6 +43,7 @@ public class Haul extends JavaPlugin
 	{
 
 		getCommand("BottleExp").setExecutor(new CommandBottleExp());
+		getCommand("Enchant").setExecutor(new CommandEnchant());
 
 	}
 
