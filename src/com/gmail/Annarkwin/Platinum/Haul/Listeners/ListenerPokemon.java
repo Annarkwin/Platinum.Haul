@@ -6,6 +6,7 @@ import org.bukkit.entity.Animals;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Fish;
+import org.bukkit.entity.Hoglin;
 import org.bukkit.entity.Tameable;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -98,7 +99,7 @@ public class ListenerPokemon implements Listener
 	public boolean isEggable( Entity e )
 	{
 
-		return (!(e instanceof Tameable) && (e instanceof Animals || e instanceof Fish));
+		return (!(e instanceof Tameable) && !(e instanceof Hoglin) && (e instanceof Animals || e instanceof Fish));
 
 	}
 
