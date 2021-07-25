@@ -8,18 +8,18 @@ commands:
   BottleExp:
     description: "Fill exp bottles for later use"
     aliases: [bxp]
-    permission: platinum.bottleexp
+    permission: platinum.command.bottleexp
     usage: /BottleExp help
   Enchant:
     description: "Enchant items"
     aliases: []
-    permission: platinum.enchant
+    permission: platinum.command.enchant
     usage: /Enchant help
 
 permissions:
   Platinum.bottleexp.user:
     default: true
     children:
-      Platinum.bottleexp: true
-      Platinum.bottleexp.help: true
-      Platinum.bottleexp.fill: true
+      Platinum.command.bottleexp: true
+      Platinum.command.bottleexp.help: true
+      Platinum.command.bottleexp.fill: true

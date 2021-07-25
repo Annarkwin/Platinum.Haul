@@ -11,103 +11,21 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import com.gmail.Annarkwin.Platinum.API.CommandHelper;
 import com.gmail.Annarkwin.Platinum.API.ExperienceManager;
-import com.gmail.Annarkwin.Platinum.API.HelpCommand;
-import com.gmail.Annarkwin.Platinum.API.MainCommand;
-import com.gmail.Annarkwin.Platinum.API.Subcommand;
+import com.gmail.Annarkwin.Platinum.API.PlatinumCommand;
 
-public class BottleExpFill implements Subcommand , HelpCommand
+public class BottleExpFill extends PlatinumCommand
 {
 
-	private String description = "Fill as many empty bottles with given amount";
-	private MainCommand main;
-	private String name = "fill";
-	private String permission = "platinum.bottleexp.fill";
-	private boolean playeronly = true;
-	private String usage = "/bottlexp fill";
-
-	public BottleExpFill( MainCommand maincommand )
+	public BottleExpFill( String name, String permission, boolean player, String description, String usage )
 	{
 
-		main = maincommand;
+		super(name, permission, player, description, usage);
+		// TODO Auto-generated constructor stub
 
 	}
 
 	@Override
-	public String getDescription()
-	{
-
-		return description;
-
-	}
-
-	@Override
-	public String getHelpString( Subcommand command )
-	{
-
-		return " §5" + command.getUsage() + " §6- " + command.getDescription();
-
-	}
-
-	@Override
-	public String[] getHelpEntries( CommandSender sender, MainCommand command )
-	{
-
-		ArrayList<String> entries = new ArrayList<String>();
-
-		for (Subcommand sc : command.getSubcommands())
-		{
-
-			if (sender.hasPermission(sc.getPermission()))
-				entries.add(getHelpString(sc));
-
-		}
-
-		return ((String[]) entries.toArray(new String[0]));
-
-	}
-
-	@Override
-	public MainCommand getMainCommand()
-	{
-
-		return main;
-
-	}
-
-	@Override
-	public String getName()
-	{
-
-		return name;
-
-	}
-
-	@Override
-	public String getPermission()
-	{
-
-		return permission;
-
-	}
-
-	@Override
-	public String getUsage()
-	{
-
-		return usage;
-
-	}
-
-	@Override
-	public boolean isPlayerOnly()
-	{
-
-		return playeronly;
-
-	}
-
-	@Override
-	public void run( CommandSender sender, String[] args )
+	public boolean run( CommandSender sender, String cmdname, String[] args )
 	{
 
 		if (args.length > 1)
@@ -132,7 +50,7 @@ public class BottleExpFill implements Subcommand , HelpCommand
 		}
 		else
 			sender.sendMessage("§4[Error]:§f You must specify how much xp to fill each bottle");
-
+		return true;
 	}
 
 	public void exec( CommandSender sender, String[] args )
