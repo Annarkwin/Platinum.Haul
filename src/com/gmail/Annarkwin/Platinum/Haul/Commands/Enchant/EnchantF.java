@@ -12,7 +12,6 @@ import com.gmail.Annarkwin.Platinum.API.PlatinumCommand;
 public class EnchantF extends PlatinumCommand
 {
 
-
 	public EnchantF( String name, String permission, boolean player, String description, String usage )
 	{
 
@@ -55,6 +54,7 @@ public class EnchantF extends PlatinumCommand
 			sender.sendMessage("§4[Error]:§f You must choose an enchantment followed by a level");
 
 		return true;
+
 	}
 
 }

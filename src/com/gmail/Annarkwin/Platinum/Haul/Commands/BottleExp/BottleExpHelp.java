@@ -73,6 +73,7 @@ public class BottleExpHelp extends PlatinumCommand implements HelpCommand
 			CommandHelper.sendHelp(sender, entries, "BottleExp", 1);
 
 		}
+
 		return true;
 
 	}

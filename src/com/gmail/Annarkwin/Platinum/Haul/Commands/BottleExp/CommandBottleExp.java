@@ -10,19 +10,16 @@ import com.gmail.Annarkwin.Platinum.API.PlatinumMainCommand;
 public class CommandBottleExp extends PlatinumMainCommand
 {
 
-	
 	public CommandBottleExp( String name, String permission, boolean player, String description, String usage )
 	{
 
 		super(name, permission, player, description, usage);
-		
 
 	}
 
 	@Override
 	public boolean run( CommandSender sender, String cmdname, String[] cmdargs )
 	{
-
 
 		boolean isplayer = sender instanceof Player;
 
@@ -69,4 +66,5 @@ public class CommandBottleExp extends PlatinumMainCommand
 		p.giveExp(amount);
 
 	}
+
 }

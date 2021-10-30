@@ -50,7 +50,9 @@ public class BottleExpFill extends PlatinumCommand
 		}
 		else
 			sender.sendMessage("§4[Error]:§f You must specify how much xp to fill each bottle");
+
 		return true;
+
 	}
 
 	public void exec( CommandSender sender, String[] args )

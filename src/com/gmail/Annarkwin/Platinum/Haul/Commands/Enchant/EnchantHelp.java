@@ -8,7 +8,7 @@ import com.gmail.Annarkwin.Platinum.API.CommandHelper;
 import com.gmail.Annarkwin.Platinum.API.HelpCommand;
 import com.gmail.Annarkwin.Platinum.API.PlatinumCommand;
 
-public class EnchantHelp  extends PlatinumCommand implements HelpCommand
+public class EnchantHelp extends PlatinumCommand implements HelpCommand
 {
 
 	public EnchantHelp( String name, String permission, boolean player, String description, String usage )
@@ -73,6 +73,7 @@ public class EnchantHelp  extends PlatinumCommand implements HelpCommand
 			CommandHelper.sendHelp(sender, entries, "BottleExp", 1);
 
 		}
+
 		return true;
 
 	}

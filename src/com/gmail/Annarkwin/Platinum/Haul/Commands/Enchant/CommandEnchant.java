@@ -8,6 +8,7 @@ import com.gmail.Annarkwin.Platinum.API.PlatinumMainCommand;
 
 public class CommandEnchant extends PlatinumMainCommand
 {
+
 	public CommandEnchant( String name, String permission, boolean player, String description, String usage )
 	{
 
